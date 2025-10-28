@@ -68,7 +68,6 @@ body {
   .temp__title {
     font-size: 36px;
     transition: font-size 0.3s ease;
-
     &.temp__title--loading {
       font-size: 16px;
     }
@@ -129,7 +128,6 @@ body {
   }
 }
 
-/* Декорации */
 .decor {
   position: absolute;
   z-index: 2;
@@ -197,7 +195,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Анимация рыка */
 @keyframes shake {
   0%,
   100% {
@@ -214,88 +211,6 @@ body {
 .roar {
   animation: shake 0.3s ease-in-out 3;
 }
-
-/* Модалка */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-
-  &__content {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 400px;
-  }
-
-  &__close {
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #ff3c00;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-  }
-}
-
-/* 📲 Адаптив */
-
-@media (max-width: 1023px) and (min-width: 768px) {
-  .wheel {
-    bottom: 0;
-    position: absolute;
-    left: 0;
-  }
-  .decor {
-    display: none; /* декор скрываем */
-  }
-
-  .spin-block__godzilla {
-    right: 0;
-    top: 0;
-    height: auto;
-  }
-}
-
-/* Мобильная версия: 360–767px */
-@media (max-width: 767px) {
-  .wheel {
-    bottom: 0;
-    position: absolute;
-    left: 0;
-  }
-  .decor {
-    display: none;
-  }
-
-  .spin-block__godzilla {
-    left: 15px;
-    top: 0;
-  }
-
-  .temp {
-    max-width: 90px;
-    padding: 10px;
-
-    .temp__title {
-      font-size: 20px;
-    }
-
-    .temp__icon {
-      width: 10px;
-    }
-  }
-}
-
-/* ===============================
-   МОДАЛКА С ВЫИГРЫШЕМ
-=============================== */
 
 .modal {
   position: absolute;
@@ -401,53 +316,82 @@ body {
   }
 }
 
-/* 📲 Адаптив */
-
-/* Планшет: 768–1023px */
 @media (max-width: 1023px) {
   .modal__content {
     max-width: 320px;
     padding: 20px;
   }
-
   .modal__title {
     font-size: 20px;
   }
-
   .modal__amount {
     font-size: 20px;
   }
-
   .modal__banner {
     max-height: 150px;
   }
 }
 
-/* Мобильные: 360–767px */
 @media (max-width: 767px) {
   .modal {
     padding: 10px;
   }
-
   .modal__content {
     max-width: 90%;
     padding: 15px;
   }
-
   .modal__title {
     font-size: 18px;
   }
-
   .modal__amount {
     font-size: 18px;
   }
-
   .modal__banner {
     max-height: 120px;
   }
-
   .modal__claim {
     padding: 10px 14px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .wheel {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+  }
+  .decor {
+    display: none;
+  }
+  .spin-block__godzilla {
+    right: 0;
+    top: 0;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .wheel {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+  }
+  .decor {
+    display: none;
+  }
+  .spin-block__godzilla {
+    left: 15px;
+    top: 0;
+  }
+  .temp {
+    max-width: 90px;
+    padding: 10px;
+  }
+  .temp__title {
+    font-size: 20px;
+  }
+  .temp__icon {
+    width: 10px;
   }
 }

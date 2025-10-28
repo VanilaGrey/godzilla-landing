@@ -112,7 +112,7 @@ function godzillaRoar(isPrize, prize) {
 }
 
 /* ==========================
-   МОДАЛКА ВЫИГРЫША (HTML-версия)
+   МОДАЛКА ВЫИГРЫША 
 ========================== */
 function showModal(prize) {
   const modal = document.getElementById("prizeModal");
