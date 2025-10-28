@@ -24,11 +24,12 @@ body {
 
   &__godzilla {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 50px;
+    top: 50px;
     height: 100%;
     width: auto;
     animation: floatUpDown 3s ease-in-out infinite;
+    transition: all 0.4s ease;
   }
 
   &__flag {
@@ -82,10 +83,11 @@ body {
 .wheel {
   position: relative;
   left: 100px;
-  max-width: 600px;
+  max-width: 900px;
   min-width: 250px;
   animation: wheelSwing 6s ease-in-out infinite;
   z-index: 2;
+  transition: all 0.4s ease;
 
   &__base,
   &__frame {
@@ -132,6 +134,7 @@ body {
   position: absolute;
   z-index: 2;
   animation: floatUpDown 4s ease-in-out infinite alternate;
+  transition: all 0.4s ease;
 }
 
 .decor--coin1 {
@@ -238,5 +241,149 @@ body {
     border: none;
     border-radius: 12px;
     cursor: pointer;
+  }
+}
+
+/* 📲 Адаптив */
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .wheel {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+  }
+  .decor {
+    display: none; /* декор скрываем */
+  }
+
+  .spin-block__godzilla {
+    right: 0;
+    top: 0;
+    height: auto;
+  }
+}
+
+/* Мобильная версия: 360–767px */
+@media (max-width: 767px) {
+  .wheel {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+  }
+  .decor {
+    display: none;
+  }
+
+  .spin-block__godzilla {
+    left: 15px;
+    top: 0;
+  }
+
+  .temp {
+    max-width: 90px;
+    padding: 10px;
+
+    .temp__title {
+      font-size: 20px;
+    }
+
+    .temp__icon {
+      width: 10px;
+    }
+  }
+}
+
+/* ===============================
+   МОДАЛКА С ВЫИГРЫШЕМ
+=============================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal__content {
+  background-color: #2D3844;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  width: 320px;
+  animation: pop 0.3s ease;
+}
+
+.modal__close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal__title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.modal__prize-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__banner {
+  width: 100%;
+}
+
+.modal__amount {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  background-color: #0166b1;
+  padding: 10px 20px;
+  border: 1px solid #fff185;
+  color: #fff185;
+  border-radius: 16px;
+}
+
+.modal__claim {
+  margin-top: 20px;
+  background: #fbbf24;
+  border: none;
+  color: #000;
+  padding: 12px 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.modal__claim:hover {
+  background: #fcd34d;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
