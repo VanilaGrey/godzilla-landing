@@ -297,24 +297,29 @@ body {
    МОДАЛКА С ВЫИГРЫШЕМ
 =============================== */
 .modal {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 15px; // чтобы контент не прилипал к краям на маленьких экранах
+  box-sizing: border-box;
 }
 
 .modal__content {
-  background-color: #2D3844;
+  background-color: #2d3844;
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 16px;
   text-align: center;
   color: #ffffff;
   position: relative;
-  width: 320px;
+  width: 100%;
+  max-width: 400px; // десктоп
   animation: pop 0.3s ease;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .modal__close {
@@ -329,7 +334,7 @@ body {
 }
 
 .modal__title {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 15px;
 }
 
@@ -342,22 +347,25 @@ body {
 
 .modal__banner {
   width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .modal__amount {
   position: absolute;
-  top: 50%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: #fff185;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   background-color: #0166b1;
-  padding: 10px 20px;
-  border: 1px solid #fff185;
-  color: #fff185;
+  padding: 15px 20px;
   border-radius: 16px;
+  border: 1px solid #fff185;
 }
 
 .modal__claim {
@@ -385,5 +393,56 @@ body {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* 📲 Адаптив */
+
+/* Планшет: 768–1023px */
+@media (max-width: 1023px) {
+  .modal__content {
+    max-width: 320px;
+    padding: 20px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+  }
+
+  .modal__amount {
+    font-size: 20px;
+  }
+
+  .modal__banner {
+    max-height: 150px;
+  }
+}
+
+/* Мобильные: 360–767px */
+@media (max-width: 767px) {
+  .modal {
+    padding: 10px;
+  }
+
+  .modal__content {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .modal__title {
+    font-size: 18px;
+  }
+
+  .modal__amount {
+    font-size: 18px;
+  }
+
+  .modal__banner {
+    max-height: 120px;
+  }
+
+  .modal__claim {
+    padding: 10px 14px;
+    font-size: 14px;
   }
 }
