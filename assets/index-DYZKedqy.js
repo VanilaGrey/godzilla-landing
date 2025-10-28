@@ -4,7 +4,7 @@
       <h2 class="modal__title">Вы выиграли</h2>
 
       <div class="modal__prize-box">
-        <img src="/src/img/prize-banner.png" alt="Приз" class="modal__banner" />
+        <img src="./src/img/prize-banner.png" alt="Приз" class="modal__banner" />
         <div class="modal__amount">${r}</div>
       </div>
 
