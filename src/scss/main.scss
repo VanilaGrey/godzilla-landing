@@ -296,16 +296,21 @@ body {
 /* ===============================
    МОДАЛКА С ВЫИГРЫШЕМ
 =============================== */
+
 .modal {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 15px; // чтобы контент не прилипал к краям на маленьких экранах
+  padding: 15px;
   box-sizing: border-box;
+}
+
+.modal.active {
+  display: flex;
 }
 
 .modal__content {
@@ -316,7 +321,7 @@ body {
   color: #ffffff;
   position: relative;
   width: 100%;
-  max-width: 400px; // десктоп
+  max-width: 400px;
   animation: pop 0.3s ease;
   box-sizing: border-box;
   overflow: hidden;

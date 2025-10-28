@@ -27,7 +27,7 @@ const sectors = [
    ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 ========================== */
 function getSectorByAngle(angle) {
-  const normalized = (angle % 360 + 360) % 360;
+  const normalized = ((angle % 360) + 360) % 360;
   return sectors.find((s) =>
     s.start < s.end
       ? normalized >= s.start && normalized < s.end
