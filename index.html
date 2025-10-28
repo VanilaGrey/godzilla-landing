@@ -4,25 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Godzilla Landing</title>
-    <!-- путь к CSS относительно корня -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
   </head>
   <body>
     <main class="spin-block">
       <!-- Фон -->
-      <img src="img/bg-city-desktop.jpg" alt="background city" class="spin-block__bg" />
-      <img src="img/fog.png" alt="fog" class="spin-block__fog" />
-      <img src="img/godzilla-image.png" alt="Godzilla" class="spin-block__godzilla" />
+      <img src="./src/img/bg-city-desktop.jpg" alt="background city" class="spin-block__bg" />
+      <img src="./src/img/fog.png" alt="fog" class="spin-block__fog" />
+      <img src="./src/img/godzilla-image.png" alt="Godzilla" class="spin-block__godzilla" />
 
       <div class="container">
-        <img src="img/flag-ru.svg" alt="flag" class="spin-block__flag" />
+        <img src="./src/img/flag-ru.svg" alt="flag" class="spin-block__flag" />
 
         <div id="temp" class="spin-block__temp temp">
           <span class="temp__title temp__title--loading">Загрузка температуры...</span>
           <span class="temp__description">
-            <svg class="temp__icon" width="24" viewBox="0 0 24 34">
+            <svg class="temp__icon" width="24" viewBox="0 0 24 34" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 0C7 0 3 4 3 9C3 15 12 34 12 34C12 34 21 15 21 9C21 4 17 0 12 0Z" fill="#ffffff"/>
-              <circle cx="12" cy="9" r="3" fill="rgba(76, 76, 76, 0.4)" />
+              <circle cx="12" cy="9" r="3" fill="rgba(76, 76, 76, 0.4)"/>
             </svg>
             <span class="temp__city-text">Almaty</span>
           </span>
@@ -30,28 +29,43 @@
 
         <div class="wheel-wrapper">
           <div class="spin-block__wheel wheel">
-            <img src="img/wheel-base.svg" alt="wheel base" class="wheel__base" />
-            <img src="img/wheel-frame.png" alt="wheel frame" class="wheel__frame" />
-            <img src="img/spin-button.svg" alt="spin button" class="wheel__button" />
+            <img src="./src/img/wheel-base.svg" alt="wheel base" class="wheel__base" />
+            <img src="./src/img/wheel-frame.png" alt="wheel frame" class="wheel__frame" />
+            <img src="./src/img/spin-button.svg" alt="spin button" class="wheel__button" />
           </div>
         </div>
       </div>
 
-      <!-- Декор -->
-      <img src="img/coin-1.png" alt="coin" class="decor decor--coin1" />
-      <img src="img/coin-2.png" alt="coin" class="decor decor--coin2" />
-      <img src="img/coin-3.png" alt="coin" class="decor decor--coin3" />
-      <img src="img/coin-4.png" alt="coin" class="decor decor--coin4" />
-      <img src="img/coin-5.png" alt="coin" class="decor decor--coin5" />
+      <!-- Монеты -->
+      <img src="./src/img/coin-1.png" alt="coin" class="decor decor--coin1" />
+      <img src="./src/img/coin-2.png" alt="coin" class="decor decor--coin2" />
+      <img src="./src/img/coin-3.png" alt="coin" class="decor decor--coin3" />
+      <img src="./src/img/coin-4.png" alt="coin" class="decor decor--coin4" />
+      <img src="./src/img/coin-5.png" alt="coin" class="decor decor--coin5" />
 
-      <img src="img/gem-blue-1.png" alt="gem" class="decor decor--gem1" />
-      <img src="img/gem-blue-2.png" alt="gem" class="decor decor--gem2" />
-      <img src="img/gem-green-1.png" alt="gem" class="decor decor--gem3" />
-      <img src="img/gem-green-2.png" alt="gem" class="decor decor--gem4" />
-      <img src="img/gem-green-3.png" alt="gem" class="decor decor--gem5" />
+      <!-- Кристаллы -->
+      <img src="./src/img/gem-blue-1.png" alt="gem" class="decor decor--gem1" />
+      <img src="./src/img/gem-blue-2.png" alt="gem" class="decor decor--gem2" />
+      <img src="./src/img/gem-green-1.png" alt="gem" class="decor decor--gem3" />
+      <img src="./src/img/gem-green-2.png" alt="gem" class="decor decor--gem4" />
+      <img src="./src/img/gem-green-3.png" alt="gem" class="decor decor--gem5" />
     </main>
 
-    <!-- JS -->
-    <script type="module" src="js/main.js"></script>
+    <!-- Модалка выигрыша -->
+    <div class="modal" id="prizeModal">
+      <div class="modal__content modal--prize">
+        <button class="modal__close">×</button>
+        <h2 class="modal__title">Вы выиграли</h2>
+
+        <div class="modal__prize-box">
+          <img src="./src/img/prize-banner.png" alt="Приз" class="modal__banner" />
+          <div class="modal__amount" id="modalPrizeAmount">0 ₸</div>
+        </div>
+
+        <button class="modal__claim" id="modalClaimBtn">Забрать бонус</button>
+      </div>
+    </div>
+
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>
