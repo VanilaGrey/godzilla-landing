@@ -1,7 +1,7 @@
 import "../scss/main.scss";
 
 /* ==========================
-   ЭЛЕМЕНТЫ DOM
+   DOM ЭЛЕМЕНТЫ
 ========================== */
 const tempTitle = document.querySelector(".temp__title");
 const tempDesc = document.querySelector(".temp__description");
@@ -23,9 +23,6 @@ const sectors = [
   { name: "100 000 ₸", start: 292.5, end: 337.5 },
 ];
 
-/* ==========================
-   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-========================== */
 function getSectorByAngle(angle) {
   const normalized = (angle % 360 + 360) % 360;
   return sectors.find((s) =>
@@ -35,6 +32,9 @@ function getSectorByAngle(angle) {
   );
 }
 
+/* ==========================
+   ТЕМПЕРАТУРА
+========================== */
 function initTemperatureBlock() {
   tempTitle.classList.add("temp__title--loading");
   tempTitle.textContent = "Загрузка температуры...";
@@ -67,9 +67,8 @@ spinBtn.addEventListener("click", () => {
 
 function spinWheel() {
   const randomDeg = Math.floor(Math.random() * 360);
-  const totalRotation = 360 * 6 + randomDeg; // 6 оборотов + случайный угол
-  const duration = 5000; // 5 секунд
-
+  const totalRotation = 360 * 6 + randomDeg;
+  const duration = 5000;
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
   const start = performance.now();
 
@@ -87,19 +86,14 @@ function spinWheel() {
   requestAnimationFrame(animate);
 }
 
-/* ==========================
-   РЕЗУЛЬТАТ ВРАЩЕНИЯ
-========================== */
 function finishSpin(rotation) {
   const sector = getSectorByAngle(rotation);
-  console.log("Результат:", sector.name);
-
   const isPrize = sector.name.includes("₸") || sector.name.includes("Бонус");
   godzillaRoar(isPrize, sector.name);
 }
 
 /* ==========================
-   АНИМАЦИЯ ГОДЗИЛЛЫ
+   АНИМАЦИЯ GODZILLA
 ========================== */
 function godzillaRoar(isPrize, prize) {
   godzilla.classList.add("roar");
@@ -112,7 +106,7 @@ function godzillaRoar(isPrize, prize) {
 }
 
 /* ==========================
-   МОДАЛКА ВЫИГРЫША
+   МОДАЛКА
 ========================== */
 function showModal(prize) {
   const modal = document.createElement("div");
@@ -123,21 +117,17 @@ function showModal(prize) {
       <h2 class="modal__title">Вы выиграли</h2>
 
       <div class="modal__prize-box">
-        <img src="./src/img/prize-banner.png" alt="Приз" class="modal__banner" />
+        <img src="img/prize-banner.png" alt="Приз" class="modal__banner" />
         <div class="modal__amount">${prize}</div>
       </div>
 
       <button class="modal__claim">Забрать бонус</button>
     </div>
   `;
-
   document.body.appendChild(modal);
 
-  const closeBtn = modal.querySelector(".modal__close");
-  const claimBtn = modal.querySelector(".modal__claim");
-
-  closeBtn.addEventListener("click", () => modal.remove());
-  claimBtn.addEventListener("click", () => {
+  modal.querySelector(".modal__close").addEventListener("click", () => modal.remove());
+  modal.querySelector(".modal__claim").addEventListener("click", () => {
     alert("Бонус отправлен!");
     modal.remove();
   });
